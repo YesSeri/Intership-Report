@@ -4,12 +4,15 @@ build_dir := 'build'
 pdf := '{build_dir}/main.pdf'
 
 all:
-	pdflatex -output-directory={{build_dir}} {{src}}
-	pdflatex -output-directory={{build_dir}} {{src}}
-watch location:
-	watchexec --exts tex -- 'just all ; cp build/main.pdf {{location}}'
+    mkdir -p {{build_dir}}
+    pdflatex -output-directory={{build_dir}} {{src}}
+    pdflatex -output-directory={{build_dir}} {{src}}
+watch:
+	watchexec --restart --stop-signal SIGKILL --exts tex -- 'just all '
 
+copy location:
+   cp build/main.pdf {{location}}
 clean:
-	rm -rf {{build_dir}} && mkdir {{build_dir}}
+	rm -rf {{build_dir}} 
 
 
