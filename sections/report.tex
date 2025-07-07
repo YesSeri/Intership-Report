@@ -17,6 +17,52 @@ I want to become a professional software engineer. In this report I will summari
 
 \section{Problem Statement and Tasks}
 
+I have had three big tasks I have solved when working as a software engineering intern at Netcompany. 
+
+\begin{itemize}
+    \item Building an Admin Panel for \href{https://nationaltforsoegsoverblik.dk/}{National Forsøgsoverblik} 
+    \item Add new code to implement law from government for Sagbehandlingssystem for Socialstyrelsen (SOCVIAS) regarding Greenland
+    \item Moving PDF creation from frontend to backend in Henvendelsesformen
+\end{itemize}
+
+In this section I will describe what the challenges of each of these problems were. 
+
+\subsection{National Forsøgsoverblik}
+
+This was my first assignment. I was completely new at Netcompany. I was instructed to build an admin panel from scratch, and had very free reigns on how to do it. 
+
+There was a word document describing the problems we were solving, but how to do it was up to me. The codebase was in Java in the backend, and Angular for the frontend. 
+
+I knew Java very well, but I had never even looked at Angular code before. The framework Angular does however have some similarity with the javascript library React, with which I have worked quite a bit.
+
+
+The challenges I faced were:
+\begin{itemize}
+    \item New language, Angular
+    \item New workplace, what is the workflow, who can I ask for help?
+    \item Security, how can I make sure the Admin panel is only accessed by authenticated and authorized users?
+\end{itemize}
+
+
+
+\subsection{Social- og Boligstyrelsen}
+SOCBS(Social- og Boligstyrelsen) needed to implement some new functionality in their internal systems for handling cases related to Greenland, since "Folketinget" had passed a new law. This law gave people on Greenland some additional support to apply for through SOCBS which means they needed to be able to create cases in their systems for budget and case history reasons.
+
+It was difficult, because the codebase is enourmous, over 200.000 LOC(Lines Of Code). One person at work knows it well, but even he admits that there are parts of the code he has never seen, and even less understands.
+
+The solution is temporary, so it should be implemented as quick and cheap as possible. From 1st of August, there will be many more changes, so this is just a temporary fix until then.
+
+
+
+
+The challenges were:
+\begin{itemize}
+    \item An enormous amount of legacy Java code, more than 200.000 LOC
+    \item SECURITY PROBLEM html sanitization 
+    \item Add new code to implement law from government for Sagbehandlingssystem for Socialstyrelsen (SOCVIAS) 
+    \item Restructure and untangle frontend's pdf handling and submission Henvendelsesformen to be easier to work with
+\end{itemize}
+
 %IN MORE DETAIL describe problems and tasks 
 
 These are some of the big tasks I have worked on when doing my internship at Netcompany.
@@ -59,13 +105,13 @@ Since many projects are done together with state actors, who demand long term pl
 \section{Log Book}
 \subsection{Week 1 - Intro day}
 
-\textit{2025-02-03 Mon}
+\noindent \textit{2025-02-03 Mon}
 
 Today was intro day. From 08.30 to 14.30 there were practical things, getting access to systems, taking photos, and getting a computer and phone. I still don't have my phone. From 14.30 until 16.30 I met with my team and made introductions. I don't have access to the relevant repo yet.
 
 \subsubsection{Setup access problems}
 
-\textit{2025-02-04 Tue 13:34}
+\noindent \textit{2025-02-04 Tue 13:34}
 
 I got access to repo today, but I can't access the relevant Docker files so I can't run the program. I will work on, \href{https://nationaltforsoegsoverblik.dk/}{NFO} and my first task will be to work on an Admin Panel, so Sys Admin can add and edit FAQ's, short guides, available sicknesses, text descriptions and activity logs.
 
@@ -73,7 +119,7 @@ It took 2 hours in the morning for us to realize that the problem is that I don'
 
 \subsubsection{Setup version problems}
 
-\textit{2025-02-04 Tue 16:22}
+\noindent \textit{2025-02-04 Tue 16:22}
 
 Around half an hour my setup started working. I had to use Java 11 for main product, Java 17 for IDP fake login, and node version was also wrong. I had 20 and you need 18 or below.
 
@@ -83,20 +129,20 @@ This took a lot of time, but Christian, one of the software engineers helped me.
 
 \subsubsection{Locked out again}
 
-\textit{2025-02-06 Thu 10:20}
+\noindent \textit{2025-02-06 Thu 10:20}
 
 Today when I got into work my setup had stopped working. The verification part of the system wants to pull a docker file, but it doesn't have access to the file anymore. I think my access has been revoked. I have written IT service, so now I must wait for them.
 
 \subsubsection{Meeting with old new friends}
 
-\textit{2025-02-06 Thu 10:25}
+\noindent \textit{2025-02-06 Thu 10:25}
 
 Now we are going to have a meeting with all new people at 10.30 
 
 \subsection{Week 2 - Starting Admin Panel \href{https://www.nationaltforsoegsoverblik.dk/}{nafo.dk}}
 \subsubsection{A few productive days and then a wall}
 
-\textit{2025-02-11 Tue}
+\noindent \textit{2025-02-11 Tue}
 
 Friday and Monday was very productive, I have gotten a lot done one the FAQ admin panel editor. Yesterday at around 16 I got problems with docker again, and have spent two hours yesterday, and two hours two day trying to get things to work. In frustrating moments like this, it is important to remember an old saying.
 
@@ -108,7 +154,7 @@ Just don't let the frustration consume me is probably one of the most important 
 
 \subsubsection{Got some work done}
 
-\textit{2025-02-12 Wed}
+\noindent \textit{2025-02-12 Wed}
 
 Today I got a lot of work done on an admin panel for \href{https://www.nationaltforsoegsoverblik.dk/}{nafo.dk}. I have created angular components for all the routes in the admin panel.
 
@@ -129,7 +175,7 @@ I am not sure if I should use routing for each of them of if should just make it
 
 \subsubsection{Finished FAQ admin editor}
 
-\textit{2025-02-13 Thu} I have finished work on the FAQ admin editor, but I am still waiting for the code to be reviewed, and approved. The backend took longer than I thought. There is also always a prioritization to make between doing things formally correct and between doing them in a reasonable time-span. One example of this was the following:
+\noindent \textit{2025-02-13 Thu} I have finished work on the FAQ admin editor, but I am still waiting for the code to be reviewed, and approved. The backend took longer than I thought. There is also always a prioritization to make between doing things formally correct and between doing them in a reasonable time-span. One example of this was the following:
 
 The FAQ\_item table in PostgreSQL has the following schema:
 
@@ -172,11 +218,9 @@ I spent 20 minutes on this last solution, and then realized, my time is wasted h
 
 If a bug occurs, then it will be solved by the end-user reordering the items once again.\strut
 
-\subsection{Week 3 - Faq Admin Text description editor} 
+\subsection{Week 3 - How to communicate at the office}
 
-\textbf{How to communicate at the office}
-
-\textit{2025-02-19 Wed}
+\noindent \textit{2025-02-19 Wed}
 
 Don't criticize unnecessarily. If you think a request you get is strange, and doesn't make sense, and the other person is not doing what they should and you have tried talking, don't be angry. Instead say:
 
@@ -201,7 +245,7 @@ Or the more generic version:
 
 \subsection{Week 4 - Faq Admin Text description editor - Finishing second to last part of admin panel}
 
-\textit{2025-02-26 Wed}
+\noindent \textit{2025-02-26 Wed}
 
 Work is going slow but steadily. The problem is that I always think I am
 close to being done, but there always come up new things that are not
@@ -209,7 +253,7 @@ working as they should.
 
 \subsection{5 - Select to multiselect specialization - String to List\textless String\textgreater{}}
 
-\textit{2025-03-04 Tue}
+\noindent \textit{2025-03-04 Tue}
 
 There was a select box where physician can select the specialization of the study of the people doing the study. Before you could only pick one, e.g. Oncology. Now the client wants to enable picking multiple, e.g. Oncology and Pediatrician and Surgeon. Sounds very easy.
 
@@ -219,7 +263,7 @@ I thought it would be easy. It required changes to around 30-40 files, 700 lines
 
 \subsubsection{1 on 1 meeting with my team manager Pernille}
 
-\textit{2025-03-06 Thu}
+\noindent \textit{2025-03-06 Thu}
 
 %DIGST is short for Digitaliserings Styrelsen. My girlfriend is a what in danish is called a "jurist", which is similar to the english lawyer, and works at DIGST. She writes the danish AI law proposal implementation from the recent EU directives.
 
@@ -241,7 +285,7 @@ done.
 That really calmed me done, and made me stress about things less. \\
 
 \subsection{Week 6 Security in Nationalt Forsøgsoverblik}
-\textit{2025-03-13 Wed}
+\noindent \textit{2025-03-13 Wed}
 This week I have been looking over some security things. We display unsanitized input from the users, because that is insecure, but we also want it to be displayed as the user inputs.
 
 In the admin panel we assume that all user input from admins is trusted, and that we can therefore disable all HTML sanitization in angular.
@@ -259,7 +303,7 @@ Currently I have been writing a message for a senior developer, who will decide 
 
 
 \subsection{Week 7 Safe html in editor in Nationalt Forsøgsoverblik}
-\textit{2025-03-17 Wed}
+\noindent \textit{2025-03-17 Wed}
 I have made a list today over the things the WYSIWYG editor will be able to have while also being secure. 
 
 A lot of googling and testing. 
@@ -285,11 +329,11 @@ These will be more difficult to implement, but possible.
 
 
 \subsection{Week 8 String to List<String>}
-\textit{2025-03-04}
+\noindent \textit{2025-03-04}
 Changed a String to a List<String>. Client wanted to have multi-select drop down instead of single-select. I thought it would be easy. It required changes to around 30-40 files, 700 lines of code changed and adding three new tables to the database. Enterprise legacy software is really something else.
 
 \subsection{Week 9 Work}
-\textit{2025-04-02}
+\noindent \textit{2025-04-02}
 
 Netcompany has asked if I want to keep working here as a
 'studentermedarbejder' after I finish my internship. This made me very
@@ -298,7 +342,7 @@ next semester, but I am happy about being here and my colleagues. \\
 
 \subsection{Week 10 Starting on SOCBS(Social- og Boligstyrelsen) project}
 
-\textit{2025-04-08}
+\noindent \textit{2025-04-08}
 
 I have worked a lot on something called VIAS. It is the sagstyringssystem that \textit{SOCBS} uses. There is a new law about Greenland and some additional funding that should be added to the things Socialstyrelsen do there, and that means some of the code must change.
 
@@ -306,7 +350,7 @@ This code is a lot older than my previous project. I think some of it is at leas
 
 \subsection{Week 11 Internal systems have crashed part 1}
 
-\textit{2025-04-18}
+\noindent \textit{2025-04-18}
 
 All the cases that are registered by \textit{SOCBS} employees, also get registered to a system called F2. These last few days that has not been working. 
 
@@ -318,18 +362,18 @@ Even though we suspect that we are not at fault for the error, the client has as
 
 \subsection{Week 12 SOCBS internal systems have crashed part 2}
 
-\textit{2025-04-25}
+\noindent \textit{2025-04-25}
 
 The problem has been solved, and it was the third parties, fault as suspected. Now there are a lot of users that have registered cases with \textit{SOCBS} that have not been registered properly. 
 My job currently is to go through the logs, looking at 100 000's of thousands of error messages, find the relevant ones find the ID of the customer, and then find their phone numbers, so \textit{SOCBS} can contact them.
 
 \subsection{Week 13 Nothing currently}
-\textit{2025-05-01 Fri}
+\noindent \textit{2025-05-01 Fri}
 This week I have had 2 days where I have had nothing todo, but it looks like tomorrow I will start setting up dev environment for a new project. I have been looking at courses on Azure on CI pipelines.
 
 \subsection{Week 14 Writing solution proposal}
 
-\textit{2025-05-09 Fri}
+\noindent \textit{2025-05-09 Fri}
 
 Niklas, a senior developer, gave me the task of writing a løsningsbeskrivelse.
 
@@ -341,7 +385,7 @@ My task is to find a way of solving this and explain it to the client in a docum
 The document is a standard template we use, and it has 6 headings.
 
 \subsection{Week 15 LOOK THIS THROUGH MORE}
-\textit{2025-05-13}
+\noindent \textit{2025-05-13}
 
 I have been working on henvendelsesformen for a week and a half. I have to refactor the whole thing. I am getting close to finshed.
 
@@ -349,34 +393,33 @@ I have applied for test server access, but it takes some time. I tried logging i
 
 \subsection{Week 16 Starting Henvendelsesformen}
 
-\textit{2025-05-19}
+\noindent \textit{2025-05-19}
 
 I am working together with Michael on a different part of \textit{SOCBS}. This is a publically avilable form, for reporting cases to the client. 
 
 Currently I am refactoring the frontend. Many things worked not as intended, so I am rewriting a lot of the frontend. The PDF generation was previously done on the frontend, but I will move it to the backend.
 
-\subsubsection{Week 17 Adding form pages to multistep form}
+\subsubsection{Week 17 and 18 adding form pages to multistep form}
 
-\textit{2025-05-27}
+\noindent \textit{2025-05-27}
 
 I am adding pages to the multistep form in Henvendelsesformen. It is done by writing SQL migrations. 
-
-\subsubsection{Week 18 }
 \subsubsection{Week 19 Proposal}
 
-\textit{2025-06-17}
+\noindent \textit{2025-06-17}
 
 I wrote a proposal for Henvendelsesformen. They have a huge flowchart, that describes all possible flows that can you can take this multi-step form. There are around 300 steps in the form, with around 1-5 input options per form step. The diagram is not very easy to follow, and this means we as developers need to contact the client to ask for clarification for what they actually mean. 
 
 I estimated that it would take 26 hours, approx. 3 days to redo the diagram. We use Microsoft Visio for drawing diagrams.
+\medskip
 
-\textit{2025-06-21}
+\noindent \textit{2025-06-21}
 
 They have approved the proposal to redraw the diagram, which I will do next week.
 
 \subsubsection{Week 20 Flowchart}
 
-\textit{2025-06-27}
+\noindent \textit{2025-06-27}
 
 This is my last day as intern at Netcompany, but I will continue to work here as a part-time employee, "studiejob", from 1. July. 
 
