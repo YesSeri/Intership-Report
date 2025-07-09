@@ -1,46 +1,43 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \section{Log Book}
-\subsection{Week 1 - Intro day}
+\subsection{Nationalt Forsøgsoverblik}
+\subsubsection{Week 1 - Intro day}
 
 \noindent \textit{2025-02-03 Mon}
+\smallskip
 
 Today was intro day. From 08.30 to 14.30 there were practical things, getting access to systems, taking photos, and getting a computer and phone. I still don't have my phone. From 14.30 until 16.30 I met with my team and made introductions. I don't have access to the relevant repo yet.
 
-\subsubsection{Setup access problems}
-
+\bigskip
 \noindent \textit{2025-02-04 Tue 13:34}
+\smallskip
 
 I got access to repo today, but I can't access the relevant Docker files so I can't run the program. I will work on, \href{https://nationaltforsoegsoverblik.dk/}{NFO} and my first task will be to work on an Admin Panel, so Sys Admin can add and edit FAQ's, short guides, available sicknesses, text descriptions and activity logs.
 
 It took 2 hours in the morning for us to realize that the problem is that I don't have access to the docker files, and I am still waiting for IT to approve my access. It is 13.34 now. I will read the todo-list, P0120 - Løsningsbeskrivelse til systemadministrator modul, through and if I have time, I will start looking at the Angular code and start learning Angular
 
-\subsubsection{Setup version problems}
-
+\bigskip
 \noindent \textit{2025-02-04 Tue 16:22}
+\smallskip
 
 Around half an hour my setup started working. I had to use Java 11 for main product, Java 17 for IDP fake login, and node version was also wrong. I had 20 and you need 18 or below.
 
 The setup was very complicated also with many xml and properties files that needed to be copied from a certificate repo to the main repo so everything would work for authentication.
 
-This took a lot of time, but Christian, one of the software engineers helped me. He was very patient. I then helped my colleague Marcus Vilhemsen with setting everything up, because he had the same problems that I had. It was difficult remembering the one-hour long walkthrough of setting it up from Christian, but with some help from git diff I managed to remember.
+This took a lot of time, but Kristian, one of the software engineers helped me. He was very patient. I then helped my colleague Marcus Vilhemsen with setting everything up, because he had the same problems that I had. It was difficult remembering the one-hour long walkthrough of setting it up from Kristian, but with some help from \verb|git diff| I managed to remember.
 
-\subsubsection{Locked out again}
-
+\bigskip
 \noindent \textit{2025-02-06 Thu 10:20}
+\smallskip
 
 Today when I got into work my setup had stopped working. The verification part of the system wants to pull a docker file, but it doesn't have access to the file anymore. I think my access has been revoked. I have written IT service, so now I must wait for them.
 
-\subsubsection{Meeting with old new friends}
-
-\noindent \textit{2025-02-06 Thu 10:25}
-
 Now we are going to have a meeting with all new people at 10.30 
 
-\subsection{Week 2 - Starting Admin Panel \href{https://www.nationaltforsoegsoverblik.dk/}{nafo.dk}}
-\subsubsection{A few productive days and then a wall}
-
+\subsubsection{Week 2 - Starting Admin Panel \href{https://www.nationaltforsoegsoverblik.dk/}{nafo.dk}}
 \noindent \textit{2025-02-11 Tue}
+\smallskip
 
 Friday and Monday was very productive, I have gotten a lot done one the FAQ admin panel editor. Yesterday at around 16 I got problems with docker again, and have spent two hours yesterday, and two hours two day trying to get things to work. In frustrating moments like this, it is important to remember an old saying.
 
@@ -48,17 +45,13 @@ Friday and Monday was very productive, I have gotten a lot done one the FAQ admi
 \emph{This, too, shall pass.}
 \end{quote}
 
-Just don't let the frustration consume me is probably one of the most important lessons I can learn, in IT and life.
+To not let frustration consume me is probably one of the most important lessons I can learn, in IT and life.
 
-\subsubsection{Got some work done}
-
+\bigskip
 \noindent \textit{2025-02-12 Wed}
+\smallskip
 
-Today I got a lot of work done on an admin panel for \href{https://www.nationaltforsoegsoverblik.dk/}{nafo.dk}. I have created angular components for all the routes in the admin panel.
-
-There is going to be editors for the following things on the site:
-
-Descriptions and texts on the site
+Today I got a lot of work done on an admin panel for \href{https://www.nationaltforsoegsoverblik.dk/}{nafo.dk}. I have created angular components for all the routes in the admin panel.  There is going to be editors for the following things on the site:
 
 \begin{itemize}
 \item FAQ
@@ -69,11 +62,14 @@ Descriptions and texts on the site
 \item Locations(regions)
 \end{itemize}
 
-I am not sure if I should use routing for each of them of if should just make it a SPA. The senior developer mentoring me, Simon, has said I can decide, and that either works, but I think it is often best to use separate routes.
+I am not sure if I should use routing for each of them of if should just make it a SPA. The senior developer mentoring me, Simon, has said I can decide, and that either works, so I will try it out and see what makes most sense to me.
 
-\subsubsection{Finished FAQ admin editor}
+\bigskip
+\noindent \textit{2025-02-13 Thu}
+\smallskip
 
-\noindent \textit{2025-02-13 Thu} I have finished work on the FAQ admin editor, but I am still waiting for the code to be reviewed, and approved. The backend took longer than I thought. There is also always a prioritization to make between doing things formally correct and between doing them in a reasonable time-span. One example of this was the following:
+ I have finished work on the FAQ admin editor, but I am still waiting for the code to be reviewed, and approved. The backend took longer than I thought. There is also always a prioritization to make between doing things formally correct and between doing them in a reasonable time-span. One example of this was the following:
+
 
 The FAQ\_item table in PostgreSQL has the following schema:
 
@@ -106,102 +102,82 @@ There are three alternatives solving this while keeping the UNIQUE constraint
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item You can move them item.ordering to a very high offset and then re-order the items below. Should work in practice but will in theory not work if \verb|offset < length(incoming_faq_items)|. 
-
 \item  Create a temporary table where you have id, and ordering, and create new order there, and then move the ordering atomically to the original ordering column. This works, but the Java code we work in, really doesn't like when you use the DDL(Data Definition Language) instead of the DML(Data Manipulation Language), \href{https://stackoverflow.com/questions/2578194/what-are-ddl-and-dml}{StackOverflow, DDL vs DML}. It complicated things, and lead me to also abandoned this idea.
 \item Create a temporary column and then set temp\_col equal to ordering similar to this: \verb|UPDATE faq_item SET ordering = temp_col|
 \end{enumerate}
 
 
-I spent 20 minutes on this last solution, and then realized, my time is wasted here. This won't really matter. Let's get something working, and then solve this problem if it ever occurs. Since the frontend always sees all \verb|faq_items|, we will always get re-order requests for all of the data in the table, so even if we have no UNIQUE, constraint, we should very rarely or never encounter a but with this.
+I spent 20 minutes on this last solution, and then realized, my time is wasted here. This won't really matter. Let's get something working, and then solve this problem if it ever becomes an actual problem. Since the front end always sees all \verb|faq_items|, we will always get re-order requests for all of the data in the table, so even if we have no UNIQUE, constraint, we should very rarely or never encounter a but with this.
 
 If a bug occurs, then it will be solved by the end-user reordering the items once again.\strut
 
-\subsection{Week 3 - How to communicate at the office}
+\subsubsection{Week 3 - How to communicate at the office}
 
 \noindent \textit{2025-02-19 Wed}
+\smallskip
 
-Don't criticize unnecessarily. If you think a request you get is strange, and doesn't make sense, and the other person is not doing what they should and you have tried talking, don't be angry. Instead say:
+Don't criticize unnecessarily, or take things personally.
+It is just as likely that you are misunderstanding and not understanding the whole picture, as it is that the other person is wrong.
 
-``Yes, I understand, interesting. 
-Can you get the boss up-to-date on this?''
+I had some problem understanding how to add access control to the controllers in the Java back end.
+I thought I was right, but I was wrong.
+I am happy that I didn't take it personally and try to stick up for my mistaken solution but instead listened.
 
 
-
-A different example. Let's say someone has forgotten to add access control to the backend controllers. Many people don't like pointing out that they have done a mistake.
-
-Don't say:
-
-'Hey you forgot this. This is dangerous and insecure. `
-
-Instead say:
-
-``Do you want me to add \emph{@RolesAllowed} annotations to the PUT, POST, and DELETE methods in \emph{FAQResource.java}? If I remember correctly, it should be \emph{SYSTEM\_ADMIN} who has access.''
-
-Or the more generic version:
-
-``Do you want me to fill out the rest of the details in the assignment? I think it should be something like A, B and C.''
-
-\subsection{Week 4 - Faq Admin Text description editor - Finishing second to last part of admin panel}
+\subsubsection{Week 4 - Finishing second to last part of admin panel}
 
 \noindent \textit{2025-02-26 Wed}
+\smallskip
 
-Work is going slow but steadily. The problem is that I always think I am
-close to being done, but there always come up new things that are not
-working as they should. 
+Work is going slow but steady.
+The problem is that I always think I am close to being done, but there always come up new things that are not working as they should. 
 
-\subsection{5 - Select to multiselect specialization - String to List\textless String\textgreater{}}
+\subsubsection{Week 5 String to List\textless String\textgreater{}}
 
 \noindent \textit{2025-03-04 Tue}
+\smallskip
 
 There was a select box where physician can select the specialization of the study of the people doing the study. Before you could only pick one, e.g. Oncology. Now the client wants to enable picking multiple, e.g. Oncology and Pediatrician and Surgeon. Sounds very easy.
 
 I thought it would be easy. It required changes to around 30-40 files, 700 lines of code changed and adding three new tables to the database. Enterprise legacy software is really something else, but now it works. 
 
-\subsection{6 - Email templates, change PI navn, improved modal share }
+\subsubsection{Week 6 - Meeting with Pernille}
 
-\subsubsection{1 on 1 meeting with my team manager Pernille}
 
 \noindent \textit{2025-03-06 Thu}
+\smallskip
 
-%DIGST is short for Digitaliserings Styrelsen. My girlfriend is a what in danish is called a "jurist", which is similar to the english lawyer, and works at DIGST. She writes the danish AI law proposal implementation from the recent EU directives.
+I told my Pernille, my team manager, I have don't have a clear feeling for how it is going. I asked her, how do you and the other Team Manager, Søren Olsen (I am currently assigned to a project on Søren's team), think it is going?
 
-% We have just recently got a contract for DIGST, where we implement some web things for them. I was worried if this is a conflict of interest. Pernille told me to not worried.
-
-% I don't get very much feedback from the one very good developer on the project, because he is very busy with other projects. The junior developers have started asking me for advice, because I often know a lot about some niche programming things, and have worked with front end a lot. Am I living up to expectations? I mean I have made commits who modify 60-70 files and adds 700 LOC(lines of code) and delete 200 LOC, and I get almost no response. My intuition is that no feedback is good feedback. This is not kindergarten, so we don't get unneccesary praise, but it is slightly difficult to know, so I asked here how they think it is going.
-
-I told my Pernille, my team manager, I have don't have a clear feeling for how it is going.
-
-I asked, how do you and the other Team Manager, Søren Olsen, think it is going?
-
-For context I want to describe Søren. Søren, is a silent, stern and serious man. I have heard from others that he can scold or berate people from his team if he is not happy with their performance, or if they have done something stupid. He is usually their in our 15 minute morning meetings with NFO project. He really know how put people in their place.
-
-There is never any doubt about whether he is happy or not with your performance. Fortunately he has gone easy on me so far.
+For context I want to describe Søren. Søren, is a silent, stern and serious man. He usually joins for our stand-up meetings in NFO, but I do not know him that well. There is usually never any doubt about whether he is happy or not with your performance, but fortunately he has not yet had negative feedback for my work.
 
 Pernille let me know that she has talked with Søren and he had said that he was impressed and happy about the work I've
-done.
+done and that really calmed me done, and made me stress about things less.
 
-That really calmed me done, and made me stress about things less. \\
-
-\subsection{Week 6 Security in Nationalt Forsøgsoverblik}
+\bigskip
 \noindent \textit{2025-03-13 Wed}
-This week I have been looking over some security things. We display unsanitized input from the users, because that is insecure, but we also want it to be displayed as the user inputs.
+\smallskip
 
-In the admin panel we assume that all user input from admins is trusted, and that we can therefore disable all HTML sanitization in angular.
+I have also been looking over some security things. We display unsanitized input from the users, because that is insecure, but we also want it to be displayed as the user inputs.
 
-In /manual/create, create new attempt that Marcus has worked on and I have taken over, input comes from far more users than just \verb|SYS_ADMIN| and I do not think we should disable HTML sanitization in the frontend when we insert HTML content from the backend in from our WYSIWYG editor. That would open up for Stored XSS attacks.
+In the admin panel we assume that all user input from admins is trusted, and that we can therefore disable all HTML sanitization in Angular.
+
+In /manual/create, create new attempt that Marcus has worked on and I have taken over, input comes from far more users than just \verb|SYS_ADMIN| and I do not think we should disable HTML sanitization in the front end when we insert HTML content from the backend in from our WYSIWYG editor. That would open up for Stored XSS attacks.
 
 Currently I have been writing a message for a senior developer, who will decide what we should do. These are the options I have thought of.
 
 \begin{itemize}
-    \item Hey, we know that the way it looks in the backend will not look in the frontend, and that's because we take security very seriously, most things will work, but some will not. Are uyou okay with this?
+    \item Hey, we know that the way it looks in the backend will not look in the frontend, and that's because we take security very seriously, most things will work, but some will not. Are you okay with this?
     \item We can disable all the things that are not displayed on the frontend and are not saved when you save to the backend using the WYSIWYG editor, but that we make customers aware this.
 \end{itemize}
 
 
 
 
-\subsection{Week 7 Safe html in editor in Nationalt Forsøgsoverblik}
+\subsubsection{Week 7 - Safe html}
 \noindent \textit{2025-03-17 Wed}
+\smallskip
+
 I have made a list today over the things the WYSIWYG editor will be able to have while also being secure. 
 
 A lot of googling and testing. 
@@ -226,31 +202,36 @@ These will be more difficult to implement, but possible.
 \end{itemize}
 
 
-\subsection{Week 8 String to List<String>}
+\subsubsection{Week 8 - String to List<String>}
 \noindent \textit{2025-03-04}
+\smallskip
+
 Changed a String to a List<String>. Client wanted to have multi-select drop down instead of single-select. I thought it would be easy. It required changes to around 30-40 files, 700 lines of code changed and adding three new tables to the database. Enterprise legacy software is really something else.
 
-\subsection{Week 9 Work}
+\subsubsection{Week 9 - Work}
 \noindent \textit{2025-04-02}
+\smallskip
 
 Netcompany has asked if I want to keep working here as a
-'studentermedarbejder' after I finish my internship. This made me very
-glad, and I think I will say yes. I hope it will not be to much work
-next semester, but I am happy about being here and my colleagues. \\
+\say{studentermedarbejder} after I finish my internship. This made me very
+happy, and I will say yes. I hope it will not be to stressful with bachelorproject and part time worknext semester, but I am really enjoy working at Netcompany and I have great colleagues in my team. 
 
-\subsection{Week 10 Starting on SOCBS(Social- og Boligstyrelsen) project}
+\subsection{SOCBS(Social- og Boligstyrelsen) - VIAS}
+\subsubsection{Week 10 - Starting a new project}
 
 \noindent \textit{2025-04-08}
+\smallskip
 
 I have worked a lot on something called VIAS. It is the sagstyringssystem that \textit{SOCBS} uses. There is a new law about Greenland and some additional funding that should be added to the things Socialstyrelsen do there, and that means some of the code must change.
 
 This code is a lot older than my previous project. I think some of it is at least 15-20 years. 
 
-\subsection{Week 11 Internal systems have crashed part 1}
+\subsubsection{Week 11 - Internal systems have crashed part 1}
 
 \noindent \textit{2025-04-18}
+\smallskip
 
-All the cases that are registered by \textit{SOCBS} employees, also get registered to a system called F2. These last few days that has not been working. 
+All the cases that are registered by SOCBS employees, also get registered to a system called F2. These last few days that has not been working. 
 
 This is a big emergency for them, since this means that their employees can't work until we get this fixed.
 We develop the internal case handling system, but F2 is developed by a separate company and we have no contact with them.
@@ -258,20 +239,24 @@ This makes everything a more cumbersome. Our system tries to register the cases 
 This indicates that the error is on their side, and not ours. The problem could be almost anything.
 Even though we suspect that we are not at fault for the error, the client has asked us to look in to it, and see if there is anything we can do.
 
-\subsection{Week 12 SOCBS internal systems have crashed part 2}
+\subsubsection{Week 12 - Internal systems have crashed part 2}
 
 \noindent \textit{2025-04-25}
+\smallskip
 
 The problem has been solved, and it was the third parties, fault as suspected. Now there are a lot of users that have registered cases with \textit{SOCBS} that have not been registered properly. 
 My job currently is to go through the logs, looking at 100 000's of thousands of error messages, find the relevant ones find the ID of the customer, and then find their phone numbers, so \textit{SOCBS} can contact them.
 
-\subsection{Week 13 Nothing currently}
+\subsubsection{Week 13 - Nothing currently}
 \noindent \textit{2025-05-01 Fri}
+\smallskip
+
 This week I have had 2 days where I have had nothing todo, but it looks like tomorrow I will start setting up dev environment for a new project. I have been looking at courses on Azure on CI pipelines.
 
-\subsection{Week 14 Writing solution proposal}
+\subsubsection{Week 14 - Writing solution proposal}
 
 \noindent \textit{2025-05-09 Fri}
+\smallskip
 
 Niklas, a senior developer, gave me the task of writing a løsningsbeskrivelse.
 
@@ -282,42 +267,50 @@ My task is to find a way of solving this and explain it to the client in a docum
 
 The document is a standard template we use, and it has 6 headings.
 
-\subsection{Week 15 LOOK THIS THROUGH MORE}
+\subsection{SOCBS - Henvendelsesformen}
+\subsubsection{Week 16 - Starting a third project}
 \noindent \textit{2025-05-13}
+\smallskip
 
 I have been working on henvendelsesformen for a week and a half. I have to refactor the whole thing. I am getting close to finshed.
 
 I have applied for test server access, but it takes some time. I tried logging in today, and I am missing the third step of approval, out of hopefully three. rettighed til fjern-login
 
-\subsection{Week 16 Starting Henvendelsesformen}
-
+\bigskip
 \noindent \textit{2025-05-19}
+\smallskip
 
 I am working together with Michael on a different part of \textit{SOCBS}. This is a publically avilable form, for reporting cases to the client. 
 
 Currently I am refactoring the frontend. Many things worked not as intended, so I am rewriting a lot of the frontend. The PDF generation was previously done on the frontend, but I will move it to the backend.
 
-\subsubsection{Week 17 and 18 adding form pages to multistep form}
+\subsubsection{Week 17 and 18 - adding pages to multistep form}
 
 \noindent \textit{2025-05-27}
+\smallskip
 
 I am adding pages to the multistep form in Henvendelsesformen. It is done by writing SQL migrations. 
-\subsubsection{Week 19 Proposal}
+
+\subsubsection{Week 19 - Proposal}
 
 \noindent \textit{2025-06-17}
+\smallskip
 
 I wrote a proposal for Henvendelsesformen. They have a huge flowchart, that describes all possible flows that can you can take this multi-step form. There are around 300 steps in the form, with around 1-5 input options per form step. The diagram is not very easy to follow, and this means we as developers need to contact the client to ask for clarification for what they actually mean. 
 
 I estimated that it would take 26 hours, approx. 3 days to redo the diagram. We use Microsoft Visio for drawing diagrams.
-\medskip
 
+
+\bigskip
 \noindent \textit{2025-06-21}
+\smallskip
 
 They have approved the proposal to redraw the diagram, which I will do next week.
 
-\subsubsection{Week 20 Flowchart}
+\subsubsection{Week 20 - Flowchart}
 
 \noindent \textit{2025-06-27}
+\smallskip
 
 This is my last day as intern at Netcompany, but I will continue to work here as a part-time employee, "studiejob", from 1. July. 
 
